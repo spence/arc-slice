@@ -24,7 +24,7 @@ impl Default for BytesMut {
 impl BytesMut {
     #[cfg(feature = "serde")]
     pub(crate) fn from_vec(vec: Vec<u8>) -> Self {
-        Self(vec.into())
+        Self(ArcBytesMut::from(vec).into_shared())
     }
 
     pub fn with_capacity(capacity: usize) -> BytesMut {
