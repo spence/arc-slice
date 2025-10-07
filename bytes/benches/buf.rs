@@ -5,6 +5,7 @@
 extern crate test;
 
 use bytes::Buf;
+use test::Bencher;
 
 /// Dummy Buf implementation
 struct TestBuf {
