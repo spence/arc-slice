@@ -7,6 +7,7 @@ edition = "2021"
 default = ["std"]
 std = ["arc-slice/std"]
 portable-atomic = ["arc-slice/portable-atomic"]
+serde = ["dep:serde", "arc-slice/serde"]
 
 [dependencies]
 arc-slice = { version = "0.1.0", path = "..", default-features = false, features = ["abort-on-refcount-overflow", "oom-handling", "default-layout-any-buffer", "default-layout-static", "default-layout-mut-any-buffer", "default-layout-mut-shared"] }
