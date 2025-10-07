@@ -1,8 +1,11 @@
 use std::hint::black_box;
 
-use arc_slice::ArcBytes;
+use arc_slice::{ArcSlice, layout};
 use bytes::Bytes;
 use criterion::{criterion_group, criterion_main, BatchSize, Criterion};
+
+// Match Bytes layout
+type ArcBytes = ArcSlice<[u8], layout::ArcLayout<true, true>>;
 
 fn empty(c: &mut Criterion) {
     let mut group = c.benchmark_group("empty");
