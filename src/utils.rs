@@ -35,7 +35,7 @@ pub(crate) fn debug_slice<S: fmt::Debug + Slice + ?Sized>(
     f: &mut fmt::Formatter<'_>,
 ) -> fmt::Result {
     match try_as_bytes(slice) {
-        Some(bytes) => write!(f, "b\"{}\"", bytes.escape_ascii()),
+        Some(bytes) => fmt::Debug::fmt(&crate::fmt::BytesRef(bytes), f),
         None => write!(f, "{slice:?}"),
     }
 }
